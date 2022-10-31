@@ -19,3 +19,9 @@ print("Hello " + str1 + ' ' + str2)
 
 # using the .format() to concatenate a string
 print("Hello {} {}".format(str1,str2))
+
+
+user_num_1 = input('First number is: ')
+user_num_2 = input('Second number is: ')
+user_sum = float(user_num_1) + float(user_num_2)
+print(user_sum)
