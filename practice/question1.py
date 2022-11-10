@@ -1,6 +1,4 @@
 
-
-
 menu = {
     1: {"name": 'espresso',
         "price": 1.99},
@@ -29,24 +27,12 @@ def calculate_subtotal(order):
     print('Calculating bill subtotal...')
     ### WRITE SOLUTION HERE
 
-    try:
-        print(order)
-        # sum = 0
-        # for key,value in menu.items():
-        #     if value and 'price' in value.keys():
-        #         sum += value['price']
-        # # print(sum) 
-        # return sum
 
-        # for key,value in order.items():
-        #     if value and 'price' in value.keys():
-        #         sum += value['price']
-        #     print(sum)
-        #     return sum    
-               
-    except NotImplementedError as e :
-        print('error', e)    
-
+    result = sum([x['price'] for x in order])
+    return float(round(result,2))
+    # return result
+    
+    
     raise NotImplementedError()
 
 def calculate_tax(subtotal):
@@ -63,6 +49,11 @@ def calculate_tax(subtotal):
     """
     print('Calculating tax from subtotal...')
     ### WRITE SOLUTION HERE
+
+    tax_rate = 15
+
+    tax = subtotal*tax_rate/100
+    return float(round(tax,2))
     
     raise NotImplementedError()
 
@@ -85,6 +76,22 @@ def summarize_order(order):
     """
     print_order(order)
     ### WRITE SOLUTION HERE
+    tax_rate = 15
+    S_total = sum([x['price'] for x in order])
+    
+    tax = S_total*tax_rate/100
+
+    total = S_total + tax
+
+    # for keys in order:
+    #     if keys['name']:
+    #         names = list(keys)
+
+    names = list(order)
+
+    return (names,total)
+    
+
 
     raise NotImplementedError()
 
@@ -122,13 +129,14 @@ def main():
     order = take_order()
     print_order(order)
 
-    # subtotal = calculate_subtotal(order)
-    # print("Subtotal for the order is: " + str(subtotal))
+    subtotal = calculate_subtotal(order)
+    print("Subtotal for the order is: " + str(subtotal))
 
-    # tax = calculate_tax(subtotal)
-    # print("Tax for the order is: " + str(tax))
+    tax = calculate_tax(subtotal)
+    print("Tax for the order is: " + str(tax))
 
-    # items, subtotal = summarize_order(order)
+    items, subtotal = summarize_order(order)
+    
 
 if __name__ == "__main__":
     main()

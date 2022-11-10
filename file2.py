@@ -14,22 +14,17 @@ def read_file(file_name):
         string: contents of the given file.
     """
     ### WRITE SOLUTION HERE
-    # try:
-    #     file_name = open("sampletext.txt", mode = 'r')
-    #     data = file_name.read()
-    #     print(data)
-    #     return data
-    #     # file_name.close()
-    # except  NotImplementedError as e:
-    #     print("error", e)
+    
 
-    # with open('sampletext.txt')
+    
     with open(file_name, 'r') as file:
         data = file.read()
-        data = str(data)
+        # dataw = str(data)
+        print(data)
         return data    
 
     raise NotImplementedError()
+
 
 def read_file_into_list(file_name):
     """ Reads in a file and stores each line as an element in a list
@@ -46,22 +41,17 @@ def read_file_into_list(file_name):
         list: a list where each element is a line in the file.
     """
     ### WRITE SOLUTION HERE
-    try:
-        
-        file_name = open('sampletext.txt', 'r')
-        data = file_name.readlines()
-        print(data)
-        return data
-        # with open("sampletext.txt", encoding="utf-8") as file_name:
-        #     data = [l.rstrip("\n") for l in file_name]
-        #     print(data)
-        #     return data 
-        
-    except NotImplementedError as e:
-        print('error',e)
 
-       
+
+    with open(file_name, 'r') as file:
+        data = file.readlines()
+        dataw = str(data)
+        # print(dataw)
+        return dataw    
+
+
     raise NotImplementedError()
+
 
 def write_first_line_to_file(file_contents, output_filename):
     """ Writes the first line of a string to a file.
@@ -80,25 +70,16 @@ def write_first_line_to_file(file_contents, output_filename):
     """
     ### WRITE SOLUTION HERE
 
-    try:
-        file_contents = open("sampletext.txt", mode = 'r')
-        data = file_contents.readline()
+   
+    
+    with open(output_filename, 'w') as f:
+        f_line = file_contents.split('\n',1)[0]
+        data = f.write(f_line)
+        return data
 
-        # output_filename = open(file_contents, mode='w')
-        # for item in data:
-        #     output_filename.write(item) 
 
-        output_filename = open("online.txt", mode='w')
-        for item in data:
-            output_filename.write(item)     
+        
 
-        # print(result)
-        # return result
-        # file_contents.close()
-        # output_filename.close()
-
-    except  NotImplementedError as e:
-        print("error", e)
 
     raise NotImplementedError()
 
@@ -118,22 +99,12 @@ def read_even_numbered_lines(file_name):
         list: a list of the even-numbered lines of the file
     """
     ### WRITE SOLUTION HERE
-    
-        
-        # file_name = open('sampletext.txt', 'r')
-        # data = file_name.readlines()
-        # newData = data.reverse()
-        # i = 1
-        # file_name = open('sampletext.txt', 'r')
-        # for line in file_name.readlines():
-        #     if i % 2 == 0:
-        #         print(line)
-        #     i += 1    
-        # data = file_name.readlines()
-        # print(data)
-        # return data
 
-   
+    file_obj = open(file_name)
+    content = file_obj.readlines()
+    return(content[1::2])   
+
+
     raise NotImplementedError()
 
 def read_file_in_reverse(file_name):
@@ -154,22 +125,19 @@ def read_file_in_reverse(file_name):
     ### WRITE SOLUTION HERE
     try:
         
-        file_name = open('sampletext.txt', 'r')
-        data = file_name.readlines()
-        newData = data.reverse()
-        # list(reversed(data))
+        file = open(file_name, 'r')
+        data = file.readlines()
+        return list(reversed(data))
 
-        print(newData)
-        return newData
     except NotImplementedError as e:
         print('error',e)
 
+    
+
     raise NotImplementedError()
 
-'''
-Here are some sample commands to help you run/test your implementations.
-Feel free to uncomment/modify/add to them as you wish.
-'''
+
+
 def main():
     file_contents = read_file("sampletext.txt")
     print(read_file_into_list("sampletext.txt"))
@@ -178,4 +146,4 @@ def main():
     print(read_file_in_reverse("sampletext.txt"))
 
 if __name__ == "__main__":
-    main()
+    main()    
