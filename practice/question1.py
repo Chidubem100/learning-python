@@ -77,21 +77,20 @@ def summarize_order(order):
     print_order(order)
     ### WRITE SOLUTION HERE
     tax_rate = 15
-    S_total = sum([x['price'] for x in order])
+    names = []
+
+    to = calculate_subtotal(order)*tax_rate/100
+    to_T = calculate_subtotal(order) + to
+    total = float(round(to_T,2))
+
+    a = dict()
+    for i in order:
+        a.update(i)
+
+    names = list([item["name"] for item in order])    
     
-    tax = S_total*tax_rate/100
-
-    total = S_total + tax
-
-    # for keys in order:
-    #     if keys['name']:
-    #         names = list(keys)
-
-    names = list(order)
-
-    return (names,total)
-    
-
+    print(names,total)
+    return (names, total)
 
     raise NotImplementedError()
 
