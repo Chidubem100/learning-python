@@ -26,6 +26,24 @@ def to_mod_list(employee_list):
       list - A list of strings consisting of name + department.
    """
    ### WRITE SOLUTION CODE HERE
+   all_employees = map(mod, employee_list)
+   for x in all_employees:
+        if x == "name":
+          return list(str(x))
+   return list(x)
+
+#    list_of_employess = ['']
+
+#    j=0
+#    for i in all_employees:
+#         if j == 0:
+#             list_of_employess[0]=(i["name"])
+#         else:
+#             list_of_employess.append(i["name"])
+#         j+=1
+#         return list_of_employess             
+
+
 
    raise NotImplementedError()
 

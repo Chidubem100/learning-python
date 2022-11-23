@@ -42,7 +42,7 @@ for y in map_carbs:
 # which will return the old list and the values that are true but the ones that are false will be returned as none
 
 
-z = ["alpha", "bravo","charlie"]
+z = ["alpha", "bravo","fharlie"]
 new_z = [i[0]*2 for i in z]
 print(new_z)
 

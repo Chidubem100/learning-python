@@ -37,7 +37,7 @@ def find_num(num):
             return x
         count += 1
 
-# print(find_num(70))            
+print(find_num(70))            
 
 
 # this is an example of pure function
