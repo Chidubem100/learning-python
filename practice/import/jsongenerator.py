@@ -3,10 +3,11 @@ Import statements:
     1. Import the built-in json python package
     2. From employee.py, import the details function and the employee_name, age, title variables
 '''
+import json
 ### WRITE IMPORT STATEMENTS HERE
 import json as js
 from employess import details
-from employess import employee_name,age,title 
+from employess import employee_name, age, title
 
 
 def create_dict(name, age, title):
@@ -27,19 +28,11 @@ def create_dict(name, age, title):
                title - string)
     """
     ### WRITE SOLUTION HERE
-    
-
-    # new_keys = ['name','age','title']
-    my_dict = {key: eval(key) for key in ['employee_name','age','title']}
-    for k,v in my_dict.items():
-        my_dict.pop(name)
-        return my_dict 
-
-
-    # return {'employee_name': str(name), "age":int(age), "title": str(title)}
-    
+    my_dict = {"name": employee_name, "age": int(age), "title": title}
+    return my_dict
 
     raise NotImplementedError()
+
 
 def write_json_to_file(json_obj, output_file):
     """ Write json string to file
@@ -54,7 +47,12 @@ def write_json_to_file(json_obj, output_file):
     """
     ### WRITE SOLUTION HERE
 
-    raise NotImplementedError()
+    with open(output_file, 'w') as file:
+        json.dump(json_obj, file)
+    #     print("Hello Sam")
+    #
+    # raise NotImplementedError()
+
 
 def main():
     # Print the contents of details() -- This should print the details of an employee
@@ -71,11 +69,13 @@ def main():
     ### WRITE YOUR CODE BY MODIFYING THE LINE BELOW
     # In the line below replace the None keyword with your code. 
     # The format should look like: variable = json.dumps(dict)
-    json_object = None
+
+    json_object = json.dumps(employee_dict)
     print("json_object: " + str(json_object))
 
     # Write out the json object to file
     write_json_to_file(json_object, "employee.json")
+
 
 if __name__ == "__main__":
     main()
