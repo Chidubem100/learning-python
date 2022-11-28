@@ -16,7 +16,7 @@ def mod(employee_list):
 def to_mod_list(employee_list):
    """ Modifies the employee list of dictionaries into list of employee-department strings
 
-   [IMPLEMENT ME] 
+   [IMPLEMENT ME]
       1. Use the map() method to apply mod() to all elements in employee_list
 
    Args:
@@ -41,16 +41,16 @@ def to_mod_list(employee_list):
 #         else:
 #             list_of_employess.append(i["name"])
 #         j+=1
-#         return list_of_employess             
+#         return list_of_employess
 
 
 
    raise NotImplementedError()
 
 def generate_usernames(mod_list):
-   """ Generates a list of usernames 
+   """ Generates a list of usernames
 
-   [IMPLEMENT ME] 
+   [IMPLEMENT ME]
       1. Use list comprehension and the replace() function to replace space
          characters with underscores
 
@@ -69,12 +69,15 @@ def generate_usernames(mod_list):
    """
    ### WRITE SOLUTION CODE HERE
 
+   list = [items.replace(" ", "_") for items in mod_list]
+   return list
+
    raise NotImplementedError()
 
 def map_id_to_initial(employee_list):
    """ Maps employee id to first initial
 
-   [IMPLEMENT ME] 
+   [IMPLEMENT ME]
       1. Use dictionary comprehension to map each employee's id (value) to the first letter in their name (key)
 
       Dictionary comprehension looks like:
@@ -87,6 +90,10 @@ def map_id_to_initial(employee_list):
       dict - A dictionary mapping an employee's id (value) to their first initial (key).
    """
    ### WRITE SOLUTION CODE HERE
+
+   dict = {key["name"][0]: key["id"] for key in employee_list}
+
+   return dict
 
    raise NotImplementedError()
 
